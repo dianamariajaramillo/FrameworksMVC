@@ -1,4 +1,4 @@
-@include('dashboard.structure.validation.errors')
+@include('dashboard.structure.validation-errors')
 @extends('layouts.app')
 
 @section('content')
@@ -24,6 +24,34 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="lastname" class="col-md-2 col-form-label text-md-right">{{ __('Apellidos') }}</label>
+
+                            <div class="col-md-5">
+                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" 
+                                placeholder="Paterno" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+
+                                @error('lastname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            
+                            <div class="col-md-5">
+                                <input id="mother_lastname" type="text" placeholder="Materno" 
+                                class="form-control @error('mother_lastname') is-invalid @enderror" 
+                                name="mother_lastname" value="{{ old('mother_lastname') }}" required autocomplete="mother_lastname" autofocus>
+
+                                @error('mother_lastname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
                         </div>
 
                         <div class="row mb-3">
