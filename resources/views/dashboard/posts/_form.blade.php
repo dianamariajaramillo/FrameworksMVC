@@ -5,6 +5,19 @@
     placeholder="Nombre de la publicacion" value="{{ old('publication', 
     $post -> publication) }}">
 </div>
+
+<div class="form-group">
+    <select class="custom-select" name="category_id" id="category_id" aria-label="Default">
+        <option selected disabled>Selecciona una opción</option>
+        @foreach ($categories as $category => $id)
+            <option {{ $post ->category_id == $id ? 'selected="selected"':'' }} value="{{ $id }}">
+                {{ category }}
+            </option>
+            
+        @endforeach
+    </select>
+</div>
+
 <div class="form-group">
     <select name="state_publication" id="state_publication" class="form-control"> 
         <option value="">Publicado</option>

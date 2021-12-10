@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -15,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('dashboard.posts.index');
+        $posts = Post::orderBy('id', 'ASC')->paginate(10);
+        return view('dashboard.posts.index',['post' => $posts]);
     }
 
     /**
@@ -25,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-    return view('dashboard/posts/create',['post'=> new Post()]);
+        $categories = Category::pluck('id', 'category');
+        return view('dashboard/posts/create',['post'=> new Post(), 'categories' => $categories]);
     }
 
     /**
