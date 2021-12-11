@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard.categories.index');
+        $categories = Category::orderBy('category', 'ASC')->paginate(10);
+        return view('dashboard.categories.index',['categories' => $categories]);
     }
 
     /**

@@ -37,6 +37,6 @@
   --}}
 
   <div class="mb-3">
-    <a href="" class="btn btn-danger">Cancelar</a> {{-- esta bueno --}}
+    <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a> {{-- esta bueno --}}
     <button type="submit" class="btn btn-success">Guardar</button>
 </div>
