@@ -23,7 +23,7 @@
                 </td>
               </tr>
             @endforeach
-
         </tbody>
-      </table>     
+      </table>    
+      {{ $categories->links() }} 
 @endsection
