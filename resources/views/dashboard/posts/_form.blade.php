@@ -11,7 +11,7 @@
         <option selected disabled>Selecciona una opción</option>
         @foreach ($categories as $category => $id)
             <option {{ $post ->category_id == $id ? 'selected="selected"':'' }} value="{{ $id }}">
-                {{ category }}
+                {{ $category }}
             </option>
             
         @endforeach
