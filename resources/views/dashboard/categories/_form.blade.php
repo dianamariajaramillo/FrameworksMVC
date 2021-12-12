@@ -18,5 +18,3 @@
     <a href="" class="btn btn-danger btn-sm">Cancelar</a>
     <button type="submit" class="btn btn-info btn-sm">Guardar</button>
 </div>
-
-{{-- tener en cuenta el name,id ya que no se como va a quedar --}}

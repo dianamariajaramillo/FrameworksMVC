@@ -13,7 +13,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    
+    /**public function __construct()
+     {
+        $this->middleware(['auth','rol.admin']);
+     }**/
+        
+     public function index()
     {
         $categories = Category::orderBy('category', 'ASC')->paginate(10);
         return view('dashboard.categories.index',['categories' => $categories]);
@@ -26,7 +32,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-    return view('dashboard/categories/create',['category'=> new Category()]);
+        return view('dashboard/categories/create',['category'=> new Category()]);
     }
 
     /**
@@ -37,7 +43,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        Category::create($request->validated());
+        Category::create($request ->validated());
         return back()->with('status','Categoria generada con exito');
     }
 
@@ -72,7 +78,8 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        return back()->with('status', 'Categoráa actualizada con éxito');
+        $category->update($request-> validated());
+        return back()->with('status', 'Categoría actualizada con éxito');
     }
 
     /**
