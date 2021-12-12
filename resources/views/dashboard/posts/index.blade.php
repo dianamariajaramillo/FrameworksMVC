@@ -1,6 +1,19 @@
 @extends('dashboard/master')
 @section('content')
     <h6>Listar publicaciones</h6> 
+    <div class="card-header">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+
+          <span id="card_title">
+              {{ __('Publicaciones') }}
+          </span>
+
+           <div class="float-right">
+              <a href="{{ route('post.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                {{ __('Crear Registro') }}
+              </a>
+            </div>
+      </div>
     <table class="table">
         <thead>
           <tr>
