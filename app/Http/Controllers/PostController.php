@@ -90,4 +90,17 @@ class PostController extends Controller
         $post->delete();
         return back()->with('status','Publicacion eliminada con exito');
     }
+
+    public function category(Category $category)
+    {
+        return $this->sucessResponse($category->post);
+    }
+
+    public function url_clean(String $url_clean)
+    {
+        $post = Post::where('url_clean',$url_clean)->get();
+        $post->category;
+        return $this->sucessResponse($post);
+    }
+
 }
