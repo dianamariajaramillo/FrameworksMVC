@@ -49,7 +49,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('dashboard.categories.show',['category' =>$category]);
     }
 
     /**
@@ -60,7 +60,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('dashboard.categories.edit',['category' =>$category]);
     }
 
     /**
@@ -72,7 +72,7 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        //
+        return back()->with('status', 'Categoráa actualizada con éxito');
     }
 
     /**
@@ -83,6 +83,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return back()->with('status','Categoría eliminada con exito');
     }
 }

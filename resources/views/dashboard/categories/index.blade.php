@@ -17,9 +17,13 @@
                 <td>{{ $post -> category }}</td>
                 <td>{{ $post -> content_category }}</td>
                 <td>
-                    <a href="{{ route ('category.show', $category -> id) }}" class="btn btn-info">Ver</a>
-                    <a href="{{ route ('category.edit', $category -> id) }}" class="btn btn-info">Editar</a>
-                    <a href="{{ route ('category.destroy', $category -> id) }}" class="btn btn-danger">Eliminar</a> 
+                  <form action="{{ route('post.destroy',$post->id) }}" method="POST">
+                      <a class="btn btn-sm btn-primary " href="{{ route('post.show',$post->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                      <a class="btn btn-sm btn-success" href="{{ route('post.edit',$post->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button> 
+                  </form>
                 </td>
               </tr>
             @endforeach

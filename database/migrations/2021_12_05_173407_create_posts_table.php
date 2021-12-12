@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('publication')->nullable()->default('text');
             $table->enum('state_publication', ['published', 'reject','in_review'])->nullable()->default('in_review');
             $table->text('content_publication')->nullable();
+            $table->bigInteger('category_id')->nullable();
             $table->timestamps();
         });
     }

@@ -15,12 +15,16 @@
             <tr>
                 <th scope="row">{{ $post -> id }}</th>
                 <td>{{ $post -> publication }}</td>
-                <td>{{ $post -> content_publication }}</td>
+                <td>{{ $post -> content_publication }}</td>                
                 <td>
-                    <a href="{{ route ('post.show', $post -> id) }}" class="btn btn-info">Ver</a>
-                    <a href="{{ route ('post.edit', $post -> id) }}" class="btn btn-info">Editar</a>
-                    <a href="{{ route ('post.destroy', $post -> id) }}" class="btn btn-danger">Eliminar</a> 
-                </td>
+                  <form action="{{ route('post.destroy',$post->id) }}" method="POST">
+                      <a class="btn btn-sm btn-primary " href="{{ route('post.show',$post->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                      <a class="btn btn-sm btn-success" href="{{ route('post.edit',$post->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button> 
+                  </form>
+              </td>
               </tr>
             @endforeach
         </tbody>
